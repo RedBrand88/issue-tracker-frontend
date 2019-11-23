@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Components/Header';
-import ListView from './Components/ListView';
+import TicketListView from './Containers/TicketListView';
 
 
 class App extends Component{
@@ -8,7 +8,7 @@ class App extends Component{
     return (
       <div>
         <Header />
-        <ListView />
+        <TicketListView />
       </div>
     );
   }

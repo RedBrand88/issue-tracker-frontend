@@ -23,7 +23,7 @@ function generate(element) {
     );
 }
 
-function ListView(props) {
+function TicketList(props) {
     return (
         <Paper style={{ margin: 'auto', marginTop: 100, marginBottom: 50, overflowy: 'auto', width: '75%' }}>
             <List>
@@ -36,7 +36,7 @@ function ListView(props) {
                                 </Avatar>
                             </ListItemAvatar>
                             <ListItemText
-                                primary="Single-line item"
+                                primary={props.data.ticket}
                             />
                             <ListItemSecondaryAction>
                                 <IconButton edge="end" aria-label="delete">
@@ -52,4 +52,4 @@ function ListView(props) {
     );
 }
 
-export default ListView;
+export default TicketList;
