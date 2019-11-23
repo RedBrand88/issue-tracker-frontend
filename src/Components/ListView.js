@@ -25,7 +25,7 @@ function generate(element) {
 
 function ListView(props) {
     return (
-        <Paper style={{ margin: 'auto', marginTop: 100, marginBottom: 50, overflowy: 'auto', width: 500 }}>
+        <Paper style={{ margin: 'auto', marginTop: 100, marginBottom: 50, overflowy: 'auto', width: '75%' }}>
             <List>
                 {generate(
                     <Fragment>
