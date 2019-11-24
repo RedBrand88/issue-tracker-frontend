@@ -6,9 +6,9 @@ import {
     ListItemSecondaryAction,
     Avatar,
     Divider,
-    IconButton
+    IconButton,
 } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import FolderIcon from '@material-ui/icons/Folder';
 import 'typeface-roboto';
 
@@ -17,7 +17,7 @@ function TicketList(props) {
     return (
         <React.Fragment>
             <Divider />
-            <ListItem>
+            <ListItem button component='a' href={'http://localhost:8000/issue-tracker/api/' + props.id}>
                 <ListItemAvatar>
                     <Avatar>
                         <FolderIcon />
@@ -25,10 +25,11 @@ function TicketList(props) {
                 </ListItemAvatar>
                 <ListItemText
                     primary={props.issue}
+                    secondary={props.status}
                 />
                 <ListItemSecondaryAction>
                     <IconButton edge="end" aria-label="delete">
-                        <DeleteIcon />
+                        <EditIcon />
                     </IconButton>
                 </ListItemSecondaryAction>
             </ListItem>

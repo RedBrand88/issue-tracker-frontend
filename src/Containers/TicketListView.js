@@ -4,6 +4,8 @@ import { List, Paper } from '@material-ui/core';
 import TicketList from '../Components/TicketListItem';
 
 
+
+
 class TicketListView extends React.Component {
     state = {
         tickets: []
@@ -21,11 +23,16 @@ class TicketListView extends React.Component {
 
     render() {
         return (
-            <Paper style={{ margin: 'auto', marginTop: 100, marginBottom: 50, overflowy: 'auto', width: '75%' }}>
-                <List>
-                    {this.state.tickets.map(({ issue }) => <TicketList issue={issue} />)}
-                </List>
-            </Paper>
+            <React.Fragment>
+                {/* <IconButton style={{ float: 'Right', margin: 20 }}>
+                    <AddIcon />
+                </IconButton> */}
+                <Paper style={{ margin: 'auto', marginBottom: 50, overflowy: 'auto', width: '75%' }}>
+                    <List>
+                        {this.state.tickets.map(({ issue, status, id }) => <TicketList issue={issue} status={status} key={id} id={id}/>)}
+                    </List>
+                </Paper>
+            </React.Fragment>
         )
     }
 }
