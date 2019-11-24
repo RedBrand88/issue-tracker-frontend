@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import TicketList from '../Components/TicketList';
+import { List, Paper } from '@material-ui/core';
+import TicketList from '../Components/TicketListItem';
 
 
 class TicketListView extends React.Component {
@@ -9,18 +10,22 @@ class TicketListView extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://127.0.0.1:8000/api/')
-        .then(res => {
-            this.setState({
-                tickets: res.data
-            });
-            console.log(res.data);
-        })
+        axios.get('http://127.0.0.1:8000/issue-tracker/api/')
+            .then(res => {
+                this.setState({
+                    tickets: res.data
+                });
+                console.log(res.data);
+            })
     }
 
     render() {
         return (
-            <TicketList data={this.state.tickets}/>
+            <Paper style={{ margin: 'auto', marginTop: 100, marginBottom: 50, overflowy: 'auto', width: '75%' }}>
+                <List>
+                    {this.state.tickets.map(({ issue }) => <TicketList issue={issue} />)}
+                </List>
+            </Paper>
         )
     }
 }
