@@ -21,7 +21,7 @@ class App extends Component {
             <Grid item xs={12}>
               <div style={{ width: '75%', marginRight: 'auto', marginLeft: 'auto', marginTop: 100 }}>
                 <Breadcrumb />
-                <IconButton style={{ float: 'right' }}>
+                <IconButton href='http://127.0.0.1:3000/create-ticket' style={{ float: 'right' }}>
                   <AddCircleOutlineIcon fontSize='large' />
                 </IconButton>
               </div>

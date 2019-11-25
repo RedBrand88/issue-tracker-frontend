@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { Paper, Divider, IconButton } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit'
-
-
+import { Paper, Divider, IconButton, Button } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import { editTicket } from '../Components/TicketListItem';
 
 
 class TicketDetailView extends React.Component {
@@ -21,12 +20,18 @@ class TicketDetailView extends React.Component {
             })
     }
 
+    closeTicket(event) {
+        event.preventDefault();
+        console.log('close button was clicked');
+    }
+
     render() {
         return (
             <Paper style={{ margin: 20, padding: 20 }}>
                 <p>
                     Issue: {this.state.ticket.issue}
-                    <IconButton style={{ float: 'right' }} edge="end" aria-label="delete">
+                    <Button style={{ float: 'right' }} onClick={this.closeTicket} color='secondary'>Close</Button>
+                    <IconButton onClick={editTicket} style={{ float: 'right' }} edge="end" aria-label="delete">
                         <EditIcon />
                     </IconButton>
                 </p>
