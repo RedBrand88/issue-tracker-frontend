@@ -17,7 +17,7 @@ function TicketList(props) {
     return (
         <React.Fragment>
             <Divider />
-            <ListItem button component='a' href={'http://localhost:8000/issue-tracker/api/' + props.id}>
+            <ListItem button component='a' href={'http://localhost:3000/' + props.id}>
                 <ListItemAvatar>
                     <Avatar>
                         <FolderIcon />

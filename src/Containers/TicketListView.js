@@ -24,9 +24,6 @@ class TicketListView extends React.Component {
     render() {
         return (
             <React.Fragment>
-                {/* <IconButton style={{ float: 'Right', margin: 20 }}>
-                    <AddIcon />
-                </IconButton> */}
                 <Paper style={{ margin: 'auto', marginBottom: 50, overflowy: 'auto', width: '75%' }}>
                     <List>
                         {this.state.tickets.map(({ issue, status, id }) => <TicketList issue={issue} status={status} key={id} id={id}/>)}
