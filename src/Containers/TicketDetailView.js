@@ -12,7 +12,7 @@ class TicketDetailView extends React.Component {
 
     componentDidMount() {
         const ticketID = this.props.match.params.ticketID;
-        axios.get(`http://127.0.0.1:8000/issue-tracker/api/${ticketID}`)
+        axios.get(`http://127.0.0.1:8000/issue-tracker/api/${ticketID}/`)
             .then(res => {
                 this.setState({
                     ticket: res.data
@@ -20,9 +20,21 @@ class TicketDetailView extends React.Component {
             })
     }
 
-    closeTicket(event) {
-        event.preventDefault();
-        console.log('close button was clicked');
+    closeTicket(event, props, state) {
+        axios.put(`http://127.0.0.1:8000/issue-tracker/api/${props.match.params.ticketID}/`, {
+            id: state.ticket.id,
+            issue: state.ticket.issue,
+            severity: 'Normal',
+            assignedTo: state.ticket.assignedTo,
+            status: 'Closed',
+            description: state.ticket.description
+        })
+        .then(res => {
+            this.setState({
+                ticket: res.data
+            });
+        })
+        .catch(error => console.log(error));
     }
 
     render() {
@@ -30,7 +42,11 @@ class TicketDetailView extends React.Component {
             <Paper style={{ margin: 20, padding: 20 }}>
                 <p>
                     Issue: {this.state.ticket.issue}
-                    <Button style={{ float: 'right' }} onClick={this.closeTicket} color='secondary'>Close</Button>
+                    <Button style={{ float: 'right' }} onClick={(event) => this.closeTicket(
+                        event,
+                        this.props,
+                        this.state
+                    )} color='secondary'>Close</Button>
                     <IconButton onClick={editTicket} style={{ float: 'right' }} edge="end" aria-label="delete">
                         <EditIcon />
                     </IconButton>

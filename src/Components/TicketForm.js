@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { TextField, MenuItem, Button, Card } from '@material-ui/core';
 
 const urgencyLevels = [
@@ -21,25 +22,54 @@ const urgencyLevels = [
 ];
 
 
-export default function CreateTicketForm() {
+export default function CreateTicketForm(props) {
     const [urgency, setUrgency] = React.useState('Normal');
 
-    const handleChange = event => {
+    const handleChange = (event) => {
         setUrgency(event.target.value);
     };
 
-    const handleFormSubmit = event => {
-        event.preventDefault();
+    const handleFormSubmit = (event, requestType, ticketID) => {
         const issue = event.target.elements.issue.value;
         const severity = event.target.elements.severity.value;
-        const assignTo = event.target.elements.assignTo.value;
+        const assignedTo = event.target.elements.assignedTo.value;
+        const status = 'Open';
         const description = event.target.elements.description.value;
-        console.log(issue + ' ' + severity + ' ' + assignTo + ' ' + description)
+
+        switch( requestType ) {
+            case 'post':
+                return axios.post('http://127.0.0.1:8000/issue-tracker/api/', {
+                    issue: issue,
+                    severity: severity,
+                    assignedTo: assignedTo,
+                    status: status,
+                    description: description
+                })
+                .then(res => console.log(res))
+                .catch(error => console.log(error))
+            case 'put':
+                return axios.put(`http://127.0.0.1:8000/issue-tracker/api/${ticketID}/`, {
+                    issue: issue,
+                    severity: severity,
+                    assignedTo: assignedTo,
+                    status: status,
+                    description: description
+                })
+                .then(res => console.log(res))
+                .catch(error => console.log(error))
+            default:
+                console.log('ran defualt case');
+        }
     }
 
     return (
         <Card style={{ margin: 20, padding: 20 }}>
-            <form onSubmit={handleFormSubmit} noValidate autoComplete="off">
+            <form onSubmit={(event) => handleFormSubmit(
+                event,
+                props.requestType,
+                props.ticketID
+            )} 
+            noValidate autoComplete="off">
                 <TextField name='issue' id="outlined-basic" label="Issue" variant="outlined" />
                 <br />
                 <TextField
@@ -60,7 +90,7 @@ export default function CreateTicketForm() {
                     ))}
                 </TextField>
                 <br />
-                <TextField name='assignTo' id="outlined-basic" label="Assign" variant="outlined" />
+                <TextField name='assignedTo' id="outlined-basic" label="Assign" variant="outlined" />
                 <br />
                 <TextField
                     name='description'
