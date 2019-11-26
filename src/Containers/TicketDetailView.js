@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import { Paper, Divider, IconButton, Button } from '@material-ui/core';
+import { Paper, Divider, IconButton, Button, Modal } from '@material-ui/core';
 import EditIcon from '@material-ui/icons/Edit';
-import { editTicket } from '../Components/TicketListItem';
+import TicketForm from '../Components/TicketForm';
 
 
 class TicketDetailView extends React.Component {
     state = {
-        ticket: {}
+        ticket: {},
+        open: false
     }
 
     componentDidMount() {
@@ -24,7 +25,7 @@ class TicketDetailView extends React.Component {
         axios.put(`http://127.0.0.1:8000/issue-tracker/api/${props.match.params.ticketID}/`, {
             id: state.ticket.id,
             issue: state.ticket.issue,
-            severity: 'Normal',
+            severity: state.ticket.severity,
             assignedTo: state.ticket.assignedTo,
             status: 'Closed',
             description: state.ticket.description
@@ -37,6 +38,14 @@ class TicketDetailView extends React.Component {
         .catch(error => console.log(error));
     }
 
+    handleOpen = () => this.setState({
+        open: true
+    });
+
+    handleClose = () => this.setState({
+        open: false
+    });
+
     render() {
         return (
             <Paper style={{ margin: 20, padding: 20 }}>
@@ -47,9 +56,20 @@ class TicketDetailView extends React.Component {
                         this.props,
                         this.state
                     )} color='secondary'>Close</Button>
-                    <IconButton onClick={editTicket} style={{ float: 'right' }} edge="end" aria-label="delete">
+                    <IconButton onClick={this.handleOpen} style={{ float: 'right' }} edge="end">
                         <EditIcon />
                     </IconButton>
+                    <Modal open={this.state.open} onClose={this.handleClose}>
+                            <TicketForm btnText='save'
+                                id={this.state.ticket.id}
+                                issue={this.state.ticket.issue}
+                                severity={this.state.ticket.severity}
+                                status={this.state.ticket.status}
+                                assignedTo={this.state.ticket.assignedTo}
+                                description={this.state.ticket.description}
+                                requestType='put'
+                            />
+                        </Modal>
                 </p>
                 <Divider />
                 <p>Urgency: {this.state.ticket.severity}</p>

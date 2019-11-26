@@ -5,7 +5,14 @@ class CreateTicketFormView extends React.Component {
 
     render() {
         return(
-            <TicketForm requestType='post' ticketId={null}/>
+            <TicketForm requestType='post' 
+            issue=''
+            severity=''
+            assignedTo=''
+            status=''
+            description=''
+            btnText='Create'
+            ticketId={null}/>
         )
     }
 }

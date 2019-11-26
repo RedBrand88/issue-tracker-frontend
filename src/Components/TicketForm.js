@@ -22,14 +22,22 @@ const urgencyLevels = [
 ];
 
 
-export default function CreateTicketForm(props) {
-    const [urgency, setUrgency] = React.useState('Normal');
+class CreateTicketForm extends React.Component {
 
-    const handleChange = (event) => {
-        setUrgency(event.target.value);
+    constructor(props) {
+        super(props);
+        this.state = {
+            urgency: 'Normal'
+        };
+    }
+
+    handleChange = (event) => {
+        this.setState({
+            urgency: event.target.value
+        });
     };
 
-    const handleFormSubmit = (event, requestType, ticketID) => {
+    handleFormSubmit = (event, requestType, ticketID) => {
         const issue = event.target.elements.issue.value;
         const severity = event.target.elements.severity.value;
         const assignedTo = event.target.elements.assignedTo.value;
@@ -62,49 +70,65 @@ export default function CreateTicketForm(props) {
         }
     }
 
-    return (
-        <Card style={{ margin: 20, padding: 20 }}>
-            <form onSubmit={(event) => handleFormSubmit(
-                event,
-                props.requestType,
-                props.ticketID
-            )} 
-            noValidate autoComplete="off">
-                <TextField name='issue' id="outlined-basic" label="Issue" variant="outlined" />
-                <br />
-                <TextField
-                    name='severity'
-                    id="outlined-select-currency"
-                    select
-                    label="Urgency"
-                    value={urgency}
-                    onChange={handleChange}
-                    helperText="Please select your urgency"
-                    margin="normal"
-                    variant="outlined"
-                >
-                    {urgencyLevels.map(option => (
-                        <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                        </MenuItem>
-                    ))}
-                </TextField>
-                <br />
-                <TextField name='assignedTo' id="outlined-basic" label="Assign" variant="outlined" />
-                <br />
-                <TextField
-                    name='description'
-                    id="outlined-textarea"
-                    label="Description"
-                    multiline
-                    style={{ display: 'flex', flexWrap: 'wrap' }}
-                    margin="normal"
-                    variant="outlined"
-                />
-                <Button variant="contained" type='submit' color="primary">
-                    Create
-                </Button>
-            </form>
-        </Card>
-    );
+    render() {
+
+        return (
+            <Card style={{ margin: 20, padding: 20 }}>
+                <form onSubmit={(event) => this.handleFormSubmit(
+                    event,
+                    this.props.requestType,
+                    this.props.id
+                )} 
+                noValidate autoComplete="off">
+                    <TextField name='issue' 
+                    id="standard-helperText" 
+                    label="Issue" 
+                    variant="outlined" 
+                    defaultValue={this.props.issue} 
+                    />
+                    <br />
+                    <TextField
+                        name='severity'
+                        select
+                        label="Urgency"
+                        value={this.state.urgency}
+                        onChange={this.handleChange}
+                        helperText="Please select your urgency"
+                        margin="normal"
+                        variant="outlined"
+                        defaultValue={this.props.severity}
+                    >
+                        {urgencyLevels.map(option => (
+                            <MenuItem key={option.value} value={option.value}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                    <br />
+                    <TextField name='assignedTo' 
+                    id="standard-helperText" 
+                    defaultValue={this.props.assignedTo} 
+                    label="Assign" 
+                    variant="outlined" />
+                    <br />
+                    <TextField
+                        name='description'
+                        id="outlined-multiline-static"
+                        label="Description"
+                        rows="4"
+                        multiline
+                        style={{ display: 'flex', flexWrap: 'wrap' }}
+                        margin="normal"
+                        variant="outlined"
+                        defaultValue={this.props.description}
+                    />
+                    <Button variant="contained" type='submit' color="primary">
+                        {this.props.btnText}
+                    </Button>
+                </form>
+            </Card>
+        );
+    }
 }
+
+export default CreateTicketForm;
