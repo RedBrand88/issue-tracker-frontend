@@ -4,10 +4,12 @@ import TicketDetailView from './Containers/TicketDetailView';
 import { Route } from 'react-router-dom';
 import CreateTicketFormView from './Containers/CreateTicketFormView';
 import UpdateTicketFormView from './Containers/UpdateTicketFormView';
+import LandingView from './Containers/LandingView';
 
 const BaseRouter = () => (
     <div>
-        <Route exact path='/' component={TicketListView}/>
+        <Route exact path='/' component={LandingView}/>
+        <Route exact path='/view-tickets' component={TicketListView}/>
         <Route exact path='/create-ticket' component={CreateTicketFormView}/>
         <Route exact path='/view-ticket/:ticketID' component={TicketDetailView}/>
         <Route exact path='/view-ticket/edit/:ticketID' component={UpdateTicketFormView}/>
