@@ -14,7 +14,12 @@ function Header(props) {
                     <Typography variant="h4" style={{ flexGrow: 1 }}>
                         Code Forge
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    {
+                        props.isAuthenticated ?
+                        <Button color="inherit">Logout</Button>
+                        :
+                        <Button color="inherit" href="/login">Login</Button>
+                    }
                 </Toolbar>
             </AppBar>
         </div>
