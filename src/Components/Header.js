@@ -2,6 +2,8 @@ import React from 'react';
 import { AppBar, Toolbar, IconButton, Typography, Button } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import 'typeface-roboto';
+import { connect } from 'react-redux';
+import * as actions from '../Store/Actions/auth';
 
 function Header(props) {
     return (
@@ -16,7 +18,7 @@ function Header(props) {
                     </Typography>
                     {
                         props.isAuthenticated ?
-                        <Button color="inherit">Logout</Button>
+                        <Button color="inherit" onClick={props.logout}>Logout</Button>
                         :
                         <Button color="inherit" href="/login">Login</Button>
                     }
@@ -26,4 +28,10 @@ function Header(props) {
     );
 }
 
-export default Header;
+const mapDispatchToProps = dispatch => {
+    return {
+        logout: () => dispatch(actions.logout())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Header);

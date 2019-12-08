@@ -58,11 +58,13 @@ export const authLogin = (username, password) => {
     };
 }
 
-export const authSignup = (username, email, password1, password2) => {
+export const authSignup = (username, firstname, lastname, email, password1, password2) => {
     return dispatch => {
         dispatch(authStart());
         axios.post('http://127.0.0.1:8000/issue-tracker/registration', {
             username: username,
+            firstname: firstname,
+            lastname: lastname,
             email: email,
             password1: password1,
             password2: password2
