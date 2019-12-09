@@ -7,7 +7,7 @@ import Breadcrumb from '../Components/Breadcrumb';
 class Layout extends React.Component {
     render() {
         return (
-            <Grid container spacing={3} style={{ background: '#020024' }}>
+            <Grid container spacing={3} style={{ background: '#020024', color: 'white' }}>
                 <Grid item xs={12}>
                     <div style={{ width: '75%', marginRight: 'auto', marginLeft: 'auto', marginTop: 100 }}>
                         <Breadcrumb />

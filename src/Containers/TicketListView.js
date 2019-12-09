@@ -17,7 +17,6 @@ class TicketListView extends React.Component {
                 this.setState({
                     tickets: res.data
                 });
-                console.log(res.data);
             })
     }
 

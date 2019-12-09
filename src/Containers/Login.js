@@ -57,12 +57,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Copyright() {
-    const classes = useStyles();
 
     return (
-        <Typography variant="body2" className={classes.whiteText} align="center">
+        <Typography variant="body2" color="inherit" align="center">
             {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
+            <Link color="inherit" href="/">
                 Code Forge
             </Link>{' '}
             {new Date().getFullYear()}
@@ -73,15 +72,20 @@ function Copyright() {
 
 function Login(props) {
     const classes = useStyles();
+    const [username, setUserName] = React.useState('');
+    const [password, setPassword] = React.useState('');
+
+    const handleUsername = event => {
+      setUserName(event.target.value);
+    };
+    
+    const handlePassword = event => {
+      setPassword(event.target.value);
+    };
 
     const handleSubmit = event => {
-        event.preventDefault()
-        props.form.validateFields((err, values) => {
-            if (!err) {
-                props.onAuth(values.userName, values.password)
-            }
-        });
-        props.history.push('/');
+        props.onAuth(username, password);
+        props.history.push('/view-tickets');
     }
 
     return (
@@ -94,17 +98,19 @@ function Login(props) {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} onSubmit={handleSubmit} noValidate>
                     <TextField
                         variant="outlined"
                         margin="normal"
                         required
                         fullWidth
-                        id="email"
-                        label="Email Address"
-                        name="email"
-                        autoComplete="email"
+                        id="userName"
+                        label="User Name"
+                        name="userName"
+                        autoComplete="username"
                         autoFocus
+                        onChange={handleUsername}
+                        value={username}
                     />
                     <TextField
                         variant="outlined"
@@ -116,6 +122,8 @@ function Login(props) {
                         type="password"
                         id="password"
                         autoComplete="current-password"
+                        onChange={handlePassword}
+                        value={password}
                     />
                     <FormControlLabel
                         control={<Checkbox value="remember" className={classes.whiteText} />}
@@ -127,7 +135,6 @@ function Login(props) {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        onClick={handleSubmit}
                     >
                         Sign In
                     </Button>

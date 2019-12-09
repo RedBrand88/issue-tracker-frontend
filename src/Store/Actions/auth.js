@@ -22,7 +22,8 @@ export const authFail = error => {
 }
 
 export const logout = () => {
-    localStorage.removeItem('user');
+    console.log('inside logout method');
+    localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
     return {
         type: actionTypes.AUTH_LOGOUT
@@ -40,7 +41,7 @@ export const checkAuthTimeout = expirationTime => {
 export const authLogin = (username, password) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('http://127.0.0.1:8000/issue-tracker/login', {
+        axios.post('http://127.0.0.1:8000/rest-auth/login/', {
             username: username,
             password: password
         })
@@ -61,7 +62,7 @@ export const authLogin = (username, password) => {
 export const authSignup = (username, firstname, lastname, email, password1, password2) => {
     return dispatch => {
         dispatch(authStart());
-        axios.post('http://127.0.0.1:8000/issue-tracker/registration', {
+        axios.post('http://127.0.0.1:8000/rest-auth/registration/', {
             username: username,
             firstname: firstname,
             lastname: lastname,
@@ -85,14 +86,20 @@ export const authSignup = (username, firstname, lastname, email, password1, pass
 
 export const authCheckState = () => {
     return dispatch => {
+        console.log('inside authCheckState dispatch');
         const token = localStorage.getItem('token');
         if (token === undefined) {
+            console.log('token is undefined');
             dispatch(logout());
         } else {
+            console.log('token exists');
             const expirationDate = new Date(localStorage.getItem('expirationDate'));
             if ( expirationDate <= new Date()) {
+                console.log('token expired');
                 dispatch(logout());
             } else {
+                console.log('token is ok')
+                console.log(token)
                 dispatch(authSuccess(token));
                 dispatch(checkAuthTimeout(expirationDate.getTime() - new Date().getTime() / 1000))
             }

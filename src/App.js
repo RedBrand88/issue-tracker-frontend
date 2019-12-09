@@ -12,6 +12,7 @@ import BaseRouter from './routes';
 class App extends Component {
 
   componentDidMount() {
+    console.log(this.props);
     this.props.onTryAutoSignup();
   }
 
@@ -40,7 +41,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    isAuthenticated: state.token !== null
+    isAuthenticated: localStorage.getItem('token') !== null
   }
 }
 

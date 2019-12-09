@@ -70,20 +70,46 @@ const useStyles = makeStyles(theme => ({
 
 function Signup(props) {
   const classes = useStyles();
+  const [username, setUsername] = React.useState('');
+  const [firstname, setFirstName] = React.useState('');
+  const [lastname, setLastName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [confirm, setConfirm] = React.useState('');
+
+  const handleUsername = event => {
+    setUsername(event.target.value);
+  };
+
+  const handleFirstName = event => {
+    setFirstName(event.target.value);
+  };
+
+  const handleLastName = event => {
+    setLastName(event.target.value);
+  };
+
+  const handleEmail = event => {
+    setEmail(event.target.value);
+  };
+
+  const handlePassword = event => {
+    setPassword(event.target.value);
+  };
+
+  const handleConfirm = event => {
+    setConfirm(event.target.value);
+  };
 
   const handleSubmit = event => {
     event.preventDefault()
-    props.form.validateFields((err, values) => {
-        if (!err) {
-            props.onAuth(values.userName,
-                values.firstName,
-                values.lastName,
-                values.email, 
-                values.password,
-                values.confirm)
-        }
-    });
-    props.history.push('/');
+    props.onAuth(username,
+                firstname,
+                lastname,
+                email, 
+                password,
+                confirm)
+    props.history.push('/view-tickets');
 }
 
   return (
@@ -96,7 +122,7 @@ function Signup(props) {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <Grid container spacing={2}>
           <Grid item xs={12}>
               <TextField
@@ -107,6 +133,8 @@ function Signup(props) {
                 label="User Name"
                 id="userName"
                 autoFocus
+                onChange={handleUsername}
+                value={username}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -118,6 +146,8 @@ function Signup(props) {
                 fullWidth
                 id="firstName"
                 label="First Name"
+                onChange={handleFirstName}
+                value={firstname}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -129,6 +159,8 @@ function Signup(props) {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                onChange={handleLastName}
+                value={lastname}
               />
             </Grid>
             <Grid item xs={12}>
@@ -140,6 +172,8 @@ function Signup(props) {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={handleEmail}
+                value={email}
               />
             </Grid>
             <Grid item xs={12}>
@@ -151,6 +185,8 @@ function Signup(props) {
                 label="Password"
                 type="password"
                 id="password"
+                onChange={handlePassword}
+                value={password}
               />
             </Grid>
             <Grid item xs={12}>
@@ -162,6 +198,8 @@ function Signup(props) {
                 label="Re-Type Password"
                 type="password"
                 id="confirm"
+                onChange={handleConfirm}
+                value={confirm}
               />
             </Grid>
             <Grid item xs={12}>
@@ -173,7 +211,6 @@ function Signup(props) {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={handleSubmit}
           >
             Sign Up
           </Button>
