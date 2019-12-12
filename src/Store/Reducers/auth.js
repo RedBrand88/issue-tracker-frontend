@@ -38,16 +38,16 @@ const authLogout = (state, action) => {
 
 const reducer = (state=initialState, action) => {
     switch (action.type) {
-        case actionTypes.AUTH_START:
+        case actionTypes.AUTH_START: 
             authStart(state, action);
             break;
-        case actionTypes.AUTH_SUCCESS:
+        case actionTypes.AUTH_SUCCESS: 
             authSuccess(state, action);
             break;
-        case actionTypes.AUTH_FAIL:
+        case actionTypes.AUTH_FAIL: 
             authFail(state, action);
             break;
-        case actionTypes.AUTH_LOGOUT :
+        case actionTypes.AUTH_LOGOUT: 
             authLogout(state, action);
             break;
         default:

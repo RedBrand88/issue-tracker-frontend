@@ -84,6 +84,7 @@ function Login(props) {
     };
 
     const handleSubmit = event => {
+        event.preventDefault();
         props.onAuth(username, password);
         props.history.push('/view-tickets');
     }

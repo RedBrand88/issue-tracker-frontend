@@ -101,7 +101,7 @@ export const authCheckState = () => {
                 console.log('token is ok')
                 console.log(token)
                 dispatch(authSuccess(token));
-                dispatch(checkAuthTimeout(expirationDate.getTime() - new Date().getTime() / 1000))
+                dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000))
             }
         }
     }
