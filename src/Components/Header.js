@@ -15,7 +15,7 @@ class Header extends React.Component {
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h4" style={{ flexGrow: 1 }}>
-                            Code Forge
+                            The Project Forge
                         </Typography>
                         {
                             this.props.isAuthenticated ?

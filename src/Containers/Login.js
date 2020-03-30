@@ -62,7 +62,7 @@ function Copyright() {
         <Typography variant="body2" color="inherit" align="center">
             {'Copyright © '}
             <Link color="inherit" href="/">
-                Code Forge
+                The Project Forge
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}

@@ -7,7 +7,7 @@ import Breadcrumb from '../Components/Breadcrumb';
 class Layout extends React.Component {
 
     render() {
-        const BASE_URL = 'theprojectforge.com';
+        const BASE_URL = 'staging.theprojectforge.com';
         return (
             <Grid container spacing={3} style={{ background: '#020024', color: 'white' }}>
                 <Grid item xs={12}>

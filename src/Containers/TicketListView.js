@@ -12,7 +12,7 @@ class TicketListView extends React.Component {
     }
 
     componentDidMount() {
-        const BASE_URL = 'theprojectforge.com';
+        const BASE_URL = 'staging.theprojectforge.com';
         axios.get(`http://${BASE_URL}:8000/issue-tracker/api/`)
             .then(res => {
                 this.setState({

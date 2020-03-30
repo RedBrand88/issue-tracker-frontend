@@ -25,7 +25,7 @@ class TicketList extends React.Component {
     }
 
     handleOpen = () => {
-        const BASE_URL = 'theprojectforge.com';
+        const BASE_URL = 'staging.theprojectforge.com';
         axios.get(`http://${BASE_URL}:8000/issue-tracker/api/${this.props.id}/`)
             .then(res => {
                 this.setState({
