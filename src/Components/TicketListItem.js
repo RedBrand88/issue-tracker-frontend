@@ -46,7 +46,7 @@ class TicketList extends React.Component {
         return (
             <React.Fragment>
                 <Divider />
-                <ListItem button component='a' href={'http://'+BASE_URL+'/view-ticket/' + this.props.id}>
+                <ListItem button component='a' href={'http://'+BASE_URL+':3000/view-ticket/' + this.props.id}>
                     <ListItemAvatar>
                         <Avatar>
                             <FolderIcon />
