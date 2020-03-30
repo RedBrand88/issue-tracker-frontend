@@ -13,7 +13,8 @@ class TicketDetailView extends React.Component {
 
     componentDidMount() {
         const ticketID = this.props.match.params.ticketID;
-        axios.get(`http://127.0.0.1:8000/issue-tracker/api/${ticketID}/`)
+        const BASE_URL = 'theprojectforge.com';
+        axios.get(`http://${BASE_URL}:8000/issue-tracker/api/${ticketID}/`)
             .then(res => {
                 this.setState({
                     ticket: res.data
@@ -22,7 +23,8 @@ class TicketDetailView extends React.Component {
     }
 
     closeTicket(event, props, state) {
-        axios.put(`http://127.0.0.1:8000/issue-tracker/api/${props.match.params.ticketID}/`, {
+        const BASE_URL = 'theprojectforge.com';
+        axios.put(`http://${BASE_URL}:8000/issue-tracker/api/${props.match.params.ticketID}/`, {
             id: state.ticket.id,
             issue: state.ticket.issue,
             severity: state.ticket.severity,

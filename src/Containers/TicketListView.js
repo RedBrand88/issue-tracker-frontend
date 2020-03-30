@@ -12,7 +12,8 @@ class TicketListView extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://127.0.0.1:8000/issue-tracker/api/')
+        const BASE_URL = 'theprojectforge.com';
+        axios.get(`http://${BASE_URL}:8000/issue-tracker/api/`)
             .then(res => {
                 this.setState({
                     tickets: res.data

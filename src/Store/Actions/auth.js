@@ -40,8 +40,9 @@ export const checkAuthTimeout = expirationTime => {
 
 export const authLogin = (username, password) => {
     return dispatch => {
+        const BASE_URL = 'theprojectforge.com';
         dispatch(authStart());
-        axios.post('http://127.0.0.1:8000/rest-auth/login/', {
+        axios.post(`http://${BASE_URL}:8000/rest-auth/login/`, {
             username: username,
             password: password
         })
@@ -61,8 +62,9 @@ export const authLogin = (username, password) => {
 
 export const authSignup = (username, firstname, lastname, email, password1, password2) => {
     return dispatch => {
+        const BASE_URL = 'theprojectforge.com';
         dispatch(authStart());
-        axios.post('http://127.0.0.1:8000/rest-auth/registration/', {
+        axios.post(`http://${BASE_URL}:8000/rest-auth/registration/`, {
             username: username,
             firstname: firstname,
             lastname: lastname,
