@@ -42,11 +42,11 @@ class TicketList extends React.Component {
     };
 
     render() {
-
+        const BASE_URL = 'staging.theprojectforge.com';
         return (
             <React.Fragment>
                 <Divider />
-                <ListItem button component='a' href={'http://localhost:3000/view-ticket/' + this.props.id}>
+                <ListItem button component='a' href={'http://'+BASE_URL+'/view-ticket/' + this.props.id}>
                     <ListItemAvatar>
                         <Avatar>
                             <FolderIcon />
