@@ -47,7 +47,7 @@ class CreateTicketForm extends React.Component {
 
         switch( requestType ) {
             case 'post':
-                return axios.post(`http://${BASE_URL}:8000/issue-tracker/api/`, {
+                return axios.post(`http://${BASE_URL}/issue-tracker/api/`, {
                     issue: issue,
                     severity: severity,
                     assignedTo: assignedTo,
@@ -57,7 +57,7 @@ class CreateTicketForm extends React.Component {
                 .then(res => console.log(res))
                 .catch(error => console.log(error))
             case 'put':
-                return axios.put(`http://${BASE_URL}:8000/issue-tracker/api/${ticketID}/`, {
+                return axios.put(`http://${BASE_URL}/issue-tracker/api/${ticketID}/`, {
                     issue: issue,
                     severity: severity,
                     assignedTo: assignedTo,

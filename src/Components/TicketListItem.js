@@ -26,7 +26,7 @@ class TicketList extends React.Component {
 
     handleOpen = () => {
         const BASE_URL = 'staging.theprojectforge.com';
-        axios.get(`http://${BASE_URL}:8000/issue-tracker/api/${this.props.id}/`)
+        axios.get(`http://${BASE_URL}/issue-tracker/api/${this.props.id}/`)
             .then(res => {
                 this.setState({
                     ticket: res.data,
@@ -46,7 +46,7 @@ class TicketList extends React.Component {
         return (
             <React.Fragment>
                 <Divider />
-                <ListItem button component='a' href={'http://'+BASE_URL+':3000/view-ticket/' + this.props.id}>
+                <ListItem button component='a' href={'http://'+BASE_URL+'/view-ticket/' + this.props.id}>
                     <ListItemAvatar>
                         <Avatar>
                             <FolderIcon />
