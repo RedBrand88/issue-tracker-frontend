@@ -13,7 +13,7 @@ class TicketDetailView extends React.Component {
 
     componentDidMount() {
         const ticketID = this.props.match.params.ticketID;
-        const BASE_URL = 'staging.theprojectforge.com';
+        const BASE_URL = 'api.theprojectforge.com';
         axios.get(`http://${BASE_URL}/issue-tracker/api/${ticketID}/`)
             .then(res => {
                 this.setState({
@@ -23,7 +23,7 @@ class TicketDetailView extends React.Component {
     }
 
     closeTicket(event, props, state) {
-        const BASE_URL = 'staging.theprojectforge.com';
+        const BASE_URL = 'api.theprojectforge.com';
         axios.put(`http://${BASE_URL}/issue-tracker/api/${props.match.params.ticketID}/`, {
             id: state.ticket.id,
             issue: state.ticket.issue,

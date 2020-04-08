@@ -43,7 +43,7 @@ class CreateTicketForm extends React.Component {
         const assignedTo = event.target.elements.assignedTo.value;
         const status = 'Open';
         const description = event.target.elements.description.value;
-        const BASE_URL = 'staging.theprojectforge.com';
+        const BASE_URL = 'api.theprojectforge.com';
 
         switch( requestType ) {
             case 'post':
