@@ -1,0 +1,32 @@
+header {
+    display: flex;
+    position: fixed;
+    padding: 1.2em 2em;
+    justify-content: space-between;
+    background: linear-gradient(140deg, #020024 30%, #8e3508 70%, #f9ff00 100%);
+    left: 0;
+    right: 0;
+    z-index: 4;
+}
+
+.mainNav ul{
+    display: flex;
+    margin: .5em 40.8px 0 0;
+    list-style-type: none;
+}
+
+.mainNav a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.navSpacing {
+    margin-right: 50px;
+}
+
+.logo {
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 1.2em;
+    font-size: 2.125em;
+}

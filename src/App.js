@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from './Components/Header';
+import MainHeader from './Components/MainHeader/MainHeader';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as actions from './Store/Actions/auth';
 
@@ -21,7 +21,7 @@ class App extends Component {
       <div style={{ flexGrow: 1 }}>
         <Router>
           <div>
-            <Header {...this.props}/>
+            <MainHeader {...this.props}/>
             <Switch>
               <Route exact path='/'>
                 <LandingView />
