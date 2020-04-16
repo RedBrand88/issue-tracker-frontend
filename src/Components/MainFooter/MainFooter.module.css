@@ -1,6 +1,6 @@
 footer {
     background: #020024;
-    color: #f9ff00;
+    color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +15,7 @@ footer ul {
 }
 
 footer a {
-    color: #f9ff00;
+    color: #fff;
     text-decoration: none;
 }
 
