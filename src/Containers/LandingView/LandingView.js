@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './LandingView.module.css';
 import '../../assets/logo512.png';
-import '../../assets/watch_yellow.svg';
-import '../../assets/compass_yellow.svg';
-import '../../assets/calendar_yellow.svg';
+import WatchIcon from '../../assets/watch_yellow.svg';
+import CompassIcon from '../../assets/compass_yellow.svg';
+import CalendarIcon from '../../assets/calendar_yellow.svg';
 
 class LandingView extends React.Component {
     render() {
@@ -33,15 +33,15 @@ class LandingView extends React.Component {
                 </div>
                 <div className={styles.features}>
                     <div className={styles.iconColumn}>
-                        <img src='calendar_yellow.svg' alt='calendar icon'/>
+                        <img src={CalendarIcon} alt='calendar icon'/>
                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
                     </div>
                     <div className={styles.iconColumn}>
-                        <img src='compass_yellow.svg' alt='compass icon'/>
+                        <img src={CompassIcon} alt='compass icon'/>
                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
                     </div>
                     <div className={styles.iconColumn}>
-                        <img src='watch_yellow.svg' alt='watch icon'/>
+                        <img src={WatchIcon} alt='watch icon'/>
                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam</p>
                     </div>
                 </div>
