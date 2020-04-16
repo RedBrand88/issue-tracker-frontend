@@ -4,9 +4,10 @@ import MainHeader from './Components/MainHeader/MainHeader';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as actions from './Store/Actions/auth';
 
-import LandingView from './Containers/LandingView';
+import LandingView from './Containers/LandingView/LandingView';
 import Layout from './Containers/Layout';
 import BaseRouter from './routes';
+import MainFooter from './Components/MainFooter/MainFooter';
 
 
 class App extends Component {
@@ -20,19 +21,18 @@ class App extends Component {
     return (
       <div style={{ flexGrow: 1 }}>
         <Router>
-          <div>
-            <MainHeader {...this.props}/>
-            <Switch>
-              <Route exact path='/'>
-                <LandingView />
-              </Route>
-              <Route path='/'>
-                <Layout>
-                  <BaseRouter />
-                </Layout>
-              </Route>
-            </Switch>
-          </div>
+          <MainHeader {...this.props} />
+          <Switch>
+            <Route exact path='/'>
+              <LandingView />
+            </Route>
+            <Route path='/'>
+              <Layout>
+                <BaseRouter />
+              </Layout>
+            </Route>
+          </Switch>
+          <MainFooter />
         </Router>
       </div>
     );
