@@ -1,0 +1,36 @@
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.large {
+    width: 100px;
+    height: 100px;
+}
+
+.medium {
+    width: 60px;
+    height: 60px;
+}
+
+.small {
+    width: 40px;
+    height: 40px;
+}
+
+.Closed {
+    background: rgba(106, 199, 36, .8);
+}
+
+.Open {
+    background: rgba(249, 255, 0, .8);
+}
+
+.user {
+    background: rgba(222, 222, 222, .4);
+}
