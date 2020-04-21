@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as actions from './Store/Actions/auth';
 
 import LandingView from './Containers/LandingView/LandingView';
-import Layout from './Containers/Layout';
 import BaseRouter from './routes';
 import MainFooter from './Components/MainFooter/MainFooter';
 
@@ -27,9 +26,7 @@ class App extends Component {
               <LandingView />
             </Route>
             <Route path='/'>
-              <Layout>
-                <BaseRouter />
-              </Layout>
+              <BaseRouter />
             </Route>
           </Switch>
           <MainFooter />
