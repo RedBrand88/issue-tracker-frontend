@@ -1,0 +1,22 @@
+.ticket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #020024;
+    padding: 0 20px;
+    border-top: #020024 solid 1px;
+}
+
+.ticketBody {
+    display: flex;
+    align-items: center;
+}
+
+.ticketBody span {
+    margin-left: 20px;
+}
+
+.ticket:hover {
+    background: rgba(222, 222, 222, .4);
+}
