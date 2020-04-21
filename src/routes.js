@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import TicketListView from './Containers/TicketListView';
 import TicketDetailView from './Containers/TicketDetailView';
 import { Route } from 'react-router-dom';
@@ -9,7 +9,7 @@ import Login from './Containers/Login';
 import Signup from './Containers/Signup';
 
 const BaseRouter = () => (
-    <div>
+    <Fragment>
         <Route exact path='/' component={LandingView}/>
         <Route exact path='/view-tickets' component={TicketListView}/>
         <Route exact path='/create-ticket' component={CreateTicketFormView}/>
@@ -17,7 +17,7 @@ const BaseRouter = () => (
         <Route exact path='/view-ticket/edit/:ticketID' component={UpdateTicketFormView}/>
         <Route exact path='/login' component={Login}/>
         <Route exact path='/sign-up' component={Signup}/>
-    </div>
+    </Fragment>
 );
 
 export default BaseRouter;
