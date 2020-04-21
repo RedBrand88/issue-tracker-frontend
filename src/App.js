@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import MainHeader from './Components/MainHeader/MainHeader';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{ flexGrow: 1 }}>
+      <Fragment>
         <Router>
           <MainHeader {...this.props} />
           <Switch>
@@ -34,7 +34,7 @@ class App extends Component {
           </Switch>
           <MainFooter />
         </Router>
-      </div>
+      </Fragment>
     );
   }
 }
