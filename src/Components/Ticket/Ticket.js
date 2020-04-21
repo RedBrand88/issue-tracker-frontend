@@ -44,7 +44,7 @@ class Ticket extends React.Component {
     render() {
         const BASE_URL = 'staging.theprojectforge.com';
         return (
-            <a href={'/view-ticket/' + this.props.id} className={styles.ticket}>
+            <div className={styles.ticket}>
                 <div className={styles.ticketBody}>
                     {this.props.status === 'Open' ?
                         <Avatar size='small' color={this.props.status}>
@@ -63,6 +63,9 @@ class Ticket extends React.Component {
                         </p>
                     </span>
                 </div>
+                <a href={'/view-ticket/' + this.props.id}>
+                    <span className={styles.puesdoLink}></span>
+                </a>
                 <IconButton onClick={this.handleOpen}>
                     <img src={EditPencilIcon} alt='Edit Icon' />
                 </IconButton>
@@ -77,7 +80,7 @@ class Ticket extends React.Component {
                         requestType='put'
                     />
                 </Modal>
-            </a>
+            </div>
         );
     }
 }

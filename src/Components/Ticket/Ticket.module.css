@@ -6,6 +6,7 @@
     color: #020024;
     padding: 0 20px;
     border-top: #020024 solid 1px;
+    position: relative;
 }
 
 .ticketBody {
@@ -19,4 +20,14 @@
 
 .ticket:hover {
     background: rgba(222, 222, 222, .4);
+}
+
+.puesdoLink {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
 }
