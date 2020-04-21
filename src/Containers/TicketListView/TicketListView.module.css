@@ -1,0 +1,10 @@
+.listContainer {
+    width: 75%;
+    margin: 100px auto 0;
+}
+
+.fakePagination {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}

@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import TicketListView from './Containers/TicketListView';
+import TicketListView from './Containers/TicketListView/TicketListView';
 import TicketDetailView from './Containers/TicketDetailView';
 import { Route } from 'react-router-dom';
 import CreateTicketFormView from './Containers/CreateTicketFormView';
