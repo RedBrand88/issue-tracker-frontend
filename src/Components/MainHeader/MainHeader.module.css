@@ -6,6 +6,7 @@ header {
     background: linear-gradient(140deg, #020024 30%, #8e3508 70%, #f9ff00 100%);
     left: 0;
     right: 0;
+    top: 0;
     z-index: 5;
 }
 
