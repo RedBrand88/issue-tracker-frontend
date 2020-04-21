@@ -13,6 +13,7 @@ import EditPencilIcon from '../../assets/edit_pencil.svg';
 import OpenTicketIcon from '../../assets/open_ticket.svg';
 import ClosedTicketIcon from '../../assets/circle_check.svg';
 
+import cx from 'classnames';
 import styles from './Ticket.module.css';
 
 class Ticket extends React.Component {
@@ -44,7 +45,7 @@ class Ticket extends React.Component {
     render() {
         const BASE_URL = 'staging.theprojectforge.com';
         return (
-            <div className={styles.ticket}>
+            <div className={ cx(styles.ticket, styles[this.props.severity], styles[this.props.status])}>
                 <div className={styles.ticketBody}>
                     {this.props.status === 'Open' ?
                         <Avatar size='small' color={this.props.status}>
