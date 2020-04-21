@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { List, Paper } from '@material-ui/core';
-import TicketList from '../Components/TicketListItem';
+import Ticket from '../Components/Ticket/Ticket';
 
 
 
@@ -26,7 +26,7 @@ class TicketListView extends React.Component {
             <React.Fragment>
                 <Paper style={{ margin: 'auto', marginBottom: 50, overflowy: 'auto', width: '75%' }}>
                     <List>
-                        {this.state.tickets.map(({ issue, status, id }) => <TicketList issue={issue} status={status} key={id} id={id}/>)}
+                        {this.state.tickets.map(({ issue, status, id }) => <Ticket issue={issue} status={status} key={id} id={id}/>)}
                     </List>
                 </Paper>
             </React.Fragment>
