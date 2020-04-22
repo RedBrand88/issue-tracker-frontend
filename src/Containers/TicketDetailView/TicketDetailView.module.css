@@ -6,11 +6,12 @@
     padding: 20px;
 }
 
-.topRow {
+.rowWithButtons {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: #020024 solid 1px;
+    height: 40px;
 }
 
 .buttons {

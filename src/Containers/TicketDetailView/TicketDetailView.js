@@ -6,6 +6,7 @@ import IconButton from '../../Components/IconButton/IconButton';
 import Button from '../../Components/Button/Button';
 
 import EditPencilIcon from '../../assets/edit_pencil.svg';
+import CloseIcon from '../../assets/close_icon.svg';
 
 import styles from './TicketDetailView.module.css';
 
@@ -58,18 +59,16 @@ class TicketDetailView extends React.Component {
     render() {
         return (
             <div className={styles.container}>
-                <div className={styles.topRow}>
+                <div className={styles.rowWithButtons}>
                     <span>
                         Issue: {this.state.ticket.issue}
                     </span>
                     <div className={styles.buttons}>
-                        <Button onClick={(event) => this.closeTicket(
-                            event,
-                            this.props,
-                            this.state
-                        )} text='Close'/>
                         <IconButton onClick={this.handleOpen}>
                             <img src={EditPencilIcon} alt='edit pencil icon' />
+                        </IconButton>
+                        <IconButton>
+                            <img src={CloseIcon} alt='exit button' />
                         </IconButton>
                         <Modal open={this.state.open} onClose={this.handleClose}>
                             <TicketForm btnText='save'
@@ -86,7 +85,18 @@ class TicketDetailView extends React.Component {
                 </div>
                 <p>Urgency: {this.state.ticket.severity}</p>
                 <p>Assigned To: {this.state.ticket.assignedTo}</p>
-                <p>Status: {this.state.ticket.status}</p>
+                <div className={styles.rowWithButtons}>
+                    <span>
+                        Status: {this.state.ticket.status}
+                    </span>
+                    <div>
+                        <Button onClick={(event) => this.closeTicket(
+                            event,
+                            this.props,
+                            this.state
+                        )} text='Close' />
+                    </div>
+                </div>
                 <p>Description: {this.state.ticket.description}</p>
             </div>
         )
