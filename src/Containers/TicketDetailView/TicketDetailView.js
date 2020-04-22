@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Modal } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
 import TicketForm from '../../Components/TicketForm';
 import IconButton from '../../Components/IconButton/IconButton';
 import Button from '../../Components/Button/Button';
@@ -67,9 +69,9 @@ class TicketDetailView extends React.Component {
                         <IconButton onClick={this.handleOpen}>
                             <img src={EditPencilIcon} alt='edit pencil icon' />
                         </IconButton>
-                        <IconButton>
+                        <Link to='/view-tickets'>
                             <img src={CloseIcon} alt='exit button' />
-                        </IconButton>
+                        </Link>
                         <Modal open={this.state.open} onClose={this.handleClose}>
                             <TicketForm btnText='save'
                                 id={this.state.ticket.id}
