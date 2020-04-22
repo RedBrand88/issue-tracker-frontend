@@ -3,6 +3,12 @@
     margin: 100px auto 0;
 }
 
+.toolBar {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+}
+
 .fakePagination {
     display: flex;
     justify-content: space-between;

@@ -1,14 +1,22 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 import Ticket from '../../Components/Ticket/Ticket';
+
+import AddIcon from '../../assets/add_circle.svg';
+
 import styles from './TicketListView.module.css';
 
 
 
 
 class TicketListView extends React.Component {
-    state = {
-        tickets: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            tickets: []
+        }
     }
 
     componentDidMount() {
@@ -25,18 +33,23 @@ class TicketListView extends React.Component {
     render() {
         return (
             <div className={styles.listContainer}>
-                <div>
-                    Search Field Component Placeholder
+                <div className={styles.toolBar}>
+                    <span>
+                        Search Field Component Placeholder
+                    </span>
+                    <Link to='/create-ticket'>
+                        <img src={AddIcon} alt='add ticket icon'/>
+                    </Link>
                 </div>
                 <div>
-                    {this.state.tickets.map(({ issue, status, id, severity }) => 
-                    <Ticket 
-                        issue={issue} 
-                        status={status} 
-                        severity={severity} 
-                        key={id} 
-                        id={id} 
-                    />)}
+                    {this.state.tickets.map(({ issue, status, id, severity }) =>
+                        <Ticket
+                            issue={issue}
+                            status={status}
+                            severity={severity}
+                            key={id}
+                            id={id}
+                        />)}
                 </div>
                 <div className={styles.fakePagination}>
                     <span>
