@@ -25,7 +25,7 @@ class Ticket extends React.Component {
         };
     }
 
-    handleOpen = () => {
+    handleEdit = () => {
         const BASE_URL = 'api.theprojectforge.com';
         axios.get(`http://${BASE_URL}/issue-tracker/api/${this.props.id}/`)
             .then(res => {
@@ -67,7 +67,7 @@ class Ticket extends React.Component {
                 <a href={'/view-ticket/' + this.props.id}>
                     <span className={styles.puesdoLink}></span>
                 </a>
-                <IconButton onClick={this.handleOpen}>
+                <IconButton onClick={this.handleEdit}>
                     <img src={EditPencilIcon} alt='Edit Icon' />
                 </IconButton>
                 <Modal open={this.state.open} onClose={this.handleClose}>
