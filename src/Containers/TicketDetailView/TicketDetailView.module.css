@@ -1,0 +1,25 @@
+.container {
+    width: 30%;
+    margin: 100px auto 0;
+    border: #020024 solid 1px;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.topRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #020024 solid 1px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+p {
+    padding: 11px 0;
+    margin: 0;
+    border-bottom: #020024 solid 1px;
+}

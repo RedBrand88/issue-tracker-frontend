@@ -1,14 +1,21 @@
 import React from 'react';
 import axios from 'axios';
-import { Paper, Divider, IconButton, Button, Modal } from '@material-ui/core';
-import EditIcon from '@material-ui/icons/Edit';
-import TicketForm from '../Components/TicketForm';
+import { Modal } from '@material-ui/core';
+import TicketForm from '../../Components/TicketForm';
+import IconButton from '../../Components/IconButton/IconButton';
+import Button from '../../Components/Button/Button';
 
+import EditPencilIcon from '../../assets/edit_pencil.svg';
+
+import styles from './TicketDetailView.module.css';
 
 class TicketDetailView extends React.Component {
-    state = {
-        ticket: {},
-        open: false
+    constructor(props) {
+        super(props)
+        this.state = {
+            ticket: {},
+            open: false
+        }
     }
 
     componentDidMount() {
@@ -32,12 +39,12 @@ class TicketDetailView extends React.Component {
             status: 'Closed',
             description: state.ticket.description
         })
-        .then(res => {
-            this.setState({
-                ticket: res.data
-            });
-        })
-        .catch(error => console.log(error));
+            .then(res => {
+                this.setState({
+                    ticket: res.data
+                });
+            })
+            .catch(error => console.log(error));
     }
 
     handleOpen = () => this.setState({
@@ -50,18 +57,21 @@ class TicketDetailView extends React.Component {
 
     render() {
         return (
-            <Paper style={{ margin: 20, padding: 20 }}>
-                <p>
-                    Issue: {this.state.ticket.issue}
-                    <Button style={{ float: 'right' }} onClick={(event) => this.closeTicket(
-                        event,
-                        this.props,
-                        this.state
-                    )} color='secondary'>Close</Button>
-                    <IconButton onClick={this.handleOpen} style={{ float: 'right' }} edge="end">
-                        <EditIcon />
-                    </IconButton>
-                    <Modal open={this.state.open} onClose={this.handleClose}>
+            <div className={styles.container}>
+                <div className={styles.topRow}>
+                    <span>
+                        Issue: {this.state.ticket.issue}
+                    </span>
+                    <div className={styles.buttons}>
+                        <Button onClick={(event) => this.closeTicket(
+                            event,
+                            this.props,
+                            this.state
+                        )} text='Close'/>
+                        <IconButton onClick={this.handleOpen}>
+                            <img src={EditPencilIcon} alt='edit pencil icon' />
+                        </IconButton>
+                        <Modal open={this.state.open} onClose={this.handleClose}>
                             <TicketForm btnText='save'
                                 id={this.state.ticket.id}
                                 issue={this.state.ticket.issue}
@@ -72,16 +82,13 @@ class TicketDetailView extends React.Component {
                                 requestType='put'
                             />
                         </Modal>
-                </p>
-                <Divider />
+                    </div>
+                </div>
                 <p>Urgency: {this.state.ticket.severity}</p>
-                <Divider />
                 <p>Assigned To: {this.state.ticket.assignedTo}</p>
-                <Divider />
                 <p>Status: {this.state.ticket.status}</p>
-                <Divider />
                 <p>Description: {this.state.ticket.description}</p>
-            </Paper>
+            </div>
         )
     }
 }
