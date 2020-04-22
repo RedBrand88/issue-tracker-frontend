@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import TicketListView from './Containers/TicketListView/TicketListView';
 import TicketDetailView from './Containers/TicketDetailView/TicketDetailView';
 import { Route } from 'react-router-dom';
-import CreateTicketFormView from './Containers/CreateTicketFormView';
+import CreateTicketFormView from './Containers/CreateTicketFormView/CreateTicketFormView';
 import UpdateTicketFormView from './Containers/UpdateTicketFormView';
 import LandingView from './Containers/LandingView/LandingView';
 import Login from './Containers/Login';
