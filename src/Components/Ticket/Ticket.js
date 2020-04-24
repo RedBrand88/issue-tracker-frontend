@@ -1,13 +1,11 @@
 import React from 'react';
-import {
-    Modal
-} from '@material-ui/core';
 import 'typeface-roboto';
 import axios from 'axios';
 
 import IconButton from '../IconButton/IconButton';
 import Avatar from '../Avatar/Avatar';
-import TicketForm from '../TicketForm';
+import TicketForm from '../TicketForm/TicketForm';
+import Modal from '../Modal/Modal';
 
 import EditPencilIcon from '../../assets/edit_pencil.svg';
 import OpenTicketIcon from '../../assets/open_ticket.svg';
@@ -20,7 +18,7 @@ class Ticket extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
+            open: 'closed',
             ticket: {}
         };
     }
@@ -31,14 +29,14 @@ class Ticket extends React.Component {
             .then(res => {
                 this.setState({
                     ticket: res.data,
-                    open: true
+                    open: 'open'
                 });
             })
     };
 
     handleClose = () => {
         this.setState({
-            open: false
+            open: 'closed'
         });
     };
 
