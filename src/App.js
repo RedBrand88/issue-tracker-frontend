@@ -8,6 +8,7 @@ import LandingView from './Containers/LandingView/LandingView';
 import BaseRouter from './routes';
 import MainFooter from './Components/MainFooter/MainFooter';
 
+import './App.css';
 
 class App extends Component {
 
@@ -21,14 +22,16 @@ class App extends Component {
       <Fragment>
         <Router>
           <MainHeader {...this.props} />
-          <Switch>
-            <Route exact path='/'>
-              <LandingView />
-            </Route>
-            <Route path='/'>
-              <BaseRouter />
-            </Route>
-          </Switch>
+          <main className="mainBody">
+            <Switch>
+              <Route exact path='/'>
+                <LandingView />
+              </Route>
+              <Route path='/'>
+                <BaseRouter />
+              </Route>
+            </Switch>
+          </main>
           <MainFooter />
         </Router>
       </Fragment>
