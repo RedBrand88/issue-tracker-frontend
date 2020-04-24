@@ -1,5 +1,5 @@
 import React from 'react';
-import TicketForm from '../../Components/TicketForm';
+import TicketForm from '../../Components/TicketForm/TicketForm';
 
 import styles from './CreateTicketFormView.module.css';
 
@@ -8,11 +8,11 @@ const CreateTicketFormView = (props) => {
     return (
         <div className={styles.createTicketContainer}>
             <TicketForm requestType='post'
-                issue=''
+                issue='Issue'
                 severity=''
-                assignedTo=''
+                assignedTo='Assign'
                 status=''
-                description=''
+                description='Description'
                 btnText='Create'
                 ticketId={null} />
         </div>
