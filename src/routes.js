@@ -3,7 +3,7 @@ import TicketListView from './Containers/TicketListView/TicketListView';
 import TicketDetailView from './Containers/TicketDetailView/TicketDetailView';
 import { Route } from 'react-router-dom';
 import CreateTicketFormView from './Containers/CreateTicketFormView/CreateTicketFormView';
-import UpdateTicketFormView from './Containers/UpdateTicketFormView';
+import UpdateTicketFormView from './Containers/UpdateTicketFormView/UpdateTicketFormView';
 import LandingView from './Containers/LandingView/LandingView';
 import Login from './Containers/Login';
 import Signup from './Containers/Signup';
