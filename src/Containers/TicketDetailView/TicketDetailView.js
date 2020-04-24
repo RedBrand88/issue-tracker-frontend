@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Modal } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
-import TicketForm from '../../Components/TicketForm';
+import TicketForm from '../../Components/TicketForm/TicketForm';
 import IconButton from '../../Components/IconButton/IconButton';
 import Button from '../../Components/Button/Button';
 
@@ -96,7 +96,8 @@ class TicketDetailView extends React.Component {
                             event,
                             this.props,
                             this.state
-                        )} text='Close' />
+                        )} text='Close'
+                            type='button' />
                     </div>
                 </div>
                 <p>Description: {this.state.ticket.description}</p>
