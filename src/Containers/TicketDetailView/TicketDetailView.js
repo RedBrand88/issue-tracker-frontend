@@ -77,10 +77,11 @@ class TicketDetailView extends React.Component {
                             <img src={CloseIcon} alt='exit button' />
                         </Link>
                         <Modal open={this.state.open} onClose={this.handleClose}>
-                            <TicketForm btnText='save'
+                            <TicketForm 
+                                btnText='save'
                                 id={this.state.ticket.id}
                                 issue={this.state.ticket.issue}
-                                severity={this.state.ticket.severity}
+                                urgency={this.state.ticket.severity}
                                 status={this.state.ticket.status}
                                 assignedTo={this.state.ticket.assignedTo}
                                 description={this.state.ticket.description}

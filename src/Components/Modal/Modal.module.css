@@ -13,13 +13,9 @@
 
 .modal {
     background: white;
-    min-width: 500px;
-    padding: 20px;
     border-radius: 20px;
-}
-
-.open {
-    display: block;
+    width: 500px;
+    padding: 2em;
 }
 
 .closed {
