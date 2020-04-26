@@ -5,8 +5,8 @@ import cx from 'classnames';
 
 const Modal = (props) => {
     return (
-        <div className={cx(styles.backDrop, styles[props.open])}>
-            <div className={cx(styles.modal)}>
+        <div onClick={props.onClose} className={cx(styles.backDrop, styles[props.open])}>
+            <div className={styles.modal}>
                 {props.children}
             </div>
         </div>

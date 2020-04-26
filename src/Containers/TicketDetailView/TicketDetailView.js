@@ -1,11 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import { Modal } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 
 import TicketForm from '../../Components/TicketForm/TicketForm';
 import IconButton from '../../Components/IconButton/IconButton';
 import Button from '../../Components/Button/Button';
+import Modal from '../../Components/Modal/Modal';
 
 import EditPencilIcon from '../../assets/edit_pencil.svg';
 import CloseIcon from '../../assets/close_icon.svg';
@@ -17,7 +17,7 @@ class TicketDetailView extends React.Component {
         super(props)
         this.state = {
             ticket: {},
-            open: false
+            open: 'closed'
         }
     }
 
@@ -50,13 +50,17 @@ class TicketDetailView extends React.Component {
             .catch(error => console.log(error));
     }
 
-    handleOpen = () => this.setState({
-        open: true
-    });
+    handleOpen = () => {
+        this.setState({
+            open: 'open'
+        });
+    }
 
-    handleClose = () => this.setState({
-        open: false
-    });
+    handleClose = () => {
+        this.setState({
+            open: 'closed'
+        });
+    }
 
     render() {
         return (
