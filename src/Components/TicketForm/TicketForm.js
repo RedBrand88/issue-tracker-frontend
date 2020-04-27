@@ -8,7 +8,7 @@ class TicketForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            urgency: '',
+            urgency: 'Normal',
         }
     }
 
@@ -17,7 +17,6 @@ class TicketForm extends Component {
     }
 
     handleSubmit = (event, requestType, ticketId) => {
-        //look into how this was set up on github
         const issue = event.target.elements.issue.value;
         const severity = event.target.elements.severity.value;
         const assignedTo = event.target.elements.assignedTo.value;
@@ -52,9 +51,9 @@ class TicketForm extends Component {
     render() {
         return (
             <div className={styles.createForm}>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={(event) => this.handleSubmit(event, this.props.requestType, this.props.id)}>
                     <input type="text" placeholder="Issue" className={styles.textFields} value={this.props.issue}/>
-                    <select value={this.props.urgency} onChange={this.handleChange} className={styles.dropDown}>
+                    <select value={this.state.urgency} onChange={this.handleChange} className={styles.dropDown}>
                         <option value="low">Low</option>
                         <option value="normal">Normal</option>
                         <option value="high">High</option>
