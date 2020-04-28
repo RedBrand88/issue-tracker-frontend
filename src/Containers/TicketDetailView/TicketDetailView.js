@@ -42,7 +42,7 @@ class TicketDetailView extends React.Component {
             severity: state.ticket.severity,
             assignedTo: state.ticket.assignedTo,
             status: 'Closed',
-            description: state.ticket.description
+            description: state.ticket.description        
         })
             .then(res => {
                 this.setState({
@@ -99,12 +99,15 @@ class TicketDetailView extends React.Component {
                         Status: {this.state.ticket.status}
                     </span>
                     <div>
-                        <Button onClick={(event) => this.closeTicket(
-                            event,
-                            this.props,
-                            this.state
-                        )} text='Close'
-                            type='button' />
+                        <Button 
+                            onClick={(event) => this.closeTicket(
+                                event,
+                                this.props,
+                                this.state
+                            )} 
+                            text='Close'
+                            type='button' 
+                        />
                     </div>
                 </div>
                 <p>Description: {this.state.ticket.description}</p>
