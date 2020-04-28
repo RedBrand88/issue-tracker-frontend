@@ -17,13 +17,14 @@ class TicketDetailView extends React.Component {
         super(props)
         this.state = {
             ticket: {},
-            open: 'closed'
+            modal: 'closed'
         }
     }
 
     componentDidMount() {
         const ticketID = this.props.match.params.ticketID;
-        const BASE_URL = 'api.theprojectforge.com';
+        // const BASE_URL = 'api.theprojectforge.com';
+        const BASE_URL = 'localhost:8000';
         axios.get(`http://${BASE_URL}/issue-tracker/api/${ticketID}/`)
             .then(res => {
                 this.setState({
@@ -33,7 +34,8 @@ class TicketDetailView extends React.Component {
     }
 
     closeTicket(event, props, state) {
-        const BASE_URL = 'api.theprojectforge.com';
+        const BASE_URL = 'localhost:8000';
+        // const BASE_URL = 'api.theprojectforge.com';
         axios.put(`http://${BASE_URL}/issue-tracker/api/${props.match.params.ticketID}/`, {
             id: state.ticket.id,
             issue: state.ticket.issue,
@@ -52,13 +54,13 @@ class TicketDetailView extends React.Component {
 
     handleOpen = () => {
         this.setState({
-            open: 'open'
+            modal: 'open'
         });
     }
 
     handleClose = () => {
         this.setState({
-            open: 'closed'
+            modal: 'closed'
         });
     }
 
@@ -76,7 +78,7 @@ class TicketDetailView extends React.Component {
                         <Link to='/view-tickets'>
                             <img src={CloseIcon} alt='exit button' />
                         </Link>
-                        <Modal open={this.state.open} onClose={this.handleClose}>
+                        <Modal open={this.state.modal} onClose={this.handleClose}>
                             <TicketForm 
                                 btnText='save'
                                 id={this.state.ticket.id}
