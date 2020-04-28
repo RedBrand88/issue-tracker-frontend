@@ -38,7 +38,7 @@ class TicketListView extends React.Component {
                         Search Field Component Placeholder
                     </span>
                     <Link to='/create-ticket'>
-                        <img src={AddIcon} alt='add ticket icon'/>
+                        <img src={AddIcon} className='addIcon' alt='add ticket icon'/>
                     </Link>
                 </div>
                 <div>
