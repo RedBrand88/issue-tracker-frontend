@@ -41,7 +41,6 @@ class Ticket extends React.Component {
     };
 
     render() {
-        const BASE_URL = 'staging.theprojectforge.com';
         return (
             <div className={ cx(styles.ticket, styles[this.props.severity], styles[this.props.status])}>
                 <div className={styles.ticketBody}>

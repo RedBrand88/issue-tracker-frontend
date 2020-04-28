@@ -7,7 +7,8 @@ const CreateTicketFormView = (props) => {
 
     return (
         <div className={styles.createTicketContainer}>
-            <TicketForm requestType='post'
+            <TicketForm 
+                requestType='post'
                 issue='Issue'
                 severity=''
                 assignedTo='Assign'
