@@ -7,6 +7,7 @@ import Ticket from '../../Components/Ticket/Ticket';
 import AddIcon from '../../assets/add_circle.svg';
 
 import styles from './TicketListView.module.css';
+import SearchBar from '../../Components/SearchBar/SearchBar';
 
 
 
@@ -15,7 +16,8 @@ class TicketListView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tickets: []
+            tickets: [],
+            search: ''
         }
     }
 
@@ -30,19 +32,26 @@ class TicketListView extends React.Component {
             })
     }
 
+    changeSearch = (e) => {
+        this.setState({
+            search: e.target.value
+        })
+    }
+
     render() {
+        const filteredTickets = this.state.tickets.filter(ticket => {
+            return ticket.issue.toLowerCase().includes(this.state.search.toLowerCase())
+        });
         return (
             <div className={styles.listContainer}>
                 <div className={styles.toolBar}>
-                    <span>
-                        Search Field Component Placeholder
-                    </span>
+                    <SearchBar changeSearch={this.changeSearch} value={this.state.search}/>
                     <Link to='/create-ticket'>
                         <img src={AddIcon} className='addIcon' alt='add ticket icon'/>
                     </Link>
                 </div>
                 <div>
-                    {this.state.tickets.map(({ issue, status, id, severity }) =>
+                    {filteredTickets.map(({ issue, status, id, severity }) =>
                         <Ticket
                             issue={issue}
                             status={status}
