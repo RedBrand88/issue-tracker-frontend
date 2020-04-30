@@ -56,8 +56,8 @@ class TicketForm extends Component {
         const assignedTo = event.target.elements.assignedTo.value;
         const status = 'Open';
         const description = event.target.elements.description.value;
-        // const BASE_URL = 'api.theprojectforge.com';
-        const BASE_URL = 'localhost:8000';
+        const BASE_URL = 'api.theprojectforge.com';
+        // const BASE_URL = 'localhost:8000';
 
         switch( requestType ) {
             case 'post':

@@ -24,8 +24,8 @@ class Ticket extends React.Component {
     }
 
     handleEdit = () => {
-        const BASE_URL = 'localhost:8000';
-        // const BASE_URL = 'api.theprojectforge.com';
+        // const BASE_URL = 'localhost:8000';
+        const BASE_URL = 'api.theprojectforge.com';
         axios.get(`http://${BASE_URL}/issue-tracker/api/${this.props.id}/`)
             .then(res => {
                 this.setState({
