@@ -22,7 +22,6 @@ export const authFail = error => {
 }
 
 export const logout = () => {
-    console.log('inside logout method');
     localStorage.removeItem('token');
     localStorage.removeItem('expirationDate');
     return {
@@ -88,20 +87,14 @@ export const authSignup = (username, firstname, lastname, email, password1, pass
 
 export const authCheckState = () => {
     return dispatch => {
-        console.log('inside authCheckState dispatch');
         const token = localStorage.getItem('token');
         if (token === undefined) {
-            console.log('token is undefined');
             dispatch(logout());
         } else {
-            console.log('token exists');
             const expirationDate = new Date(localStorage.getItem('expirationDate'));
             if ( expirationDate <= new Date()) {
-                console.log('token expired');
                 dispatch(logout());
             } else {
-                console.log('token is ok')
-                console.log(token)
                 dispatch(authSuccess(token));
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000))
             }

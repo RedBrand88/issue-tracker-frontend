@@ -1,0 +1,50 @@
+.ticket {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #020024;
+    padding: 0 20px;
+    border-top: #020024 solid 1px;
+    position: relative;
+}
+
+.ticketBody {
+    display: flex;
+    align-items: center;
+}
+
+.ticketBody span {
+    margin-left: 20px;
+}
+
+.Low:hover {
+    background: rgba(186, 242, 90, .4);
+}
+
+.Normal:hover {
+    background: rgba(222, 222, 222, .4);
+}
+
+.High:hover {
+    background: rgba(242, 207, 90, .4);
+}
+
+.Urgent:hover {
+    background: rgba(242, 136, 90, .4);
+}
+
+.Closed:hover {
+    background: rgba(222, 222, 222, .4);
+}
+
+.puesdoLink {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 1;
+}
+

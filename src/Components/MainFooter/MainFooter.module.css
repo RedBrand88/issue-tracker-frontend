@@ -1,0 +1,29 @@
+footer {
+    background: #020024;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px;
+}
+
+footer ul {
+    display: flex;
+    text-decoration: none;
+    list-style-type: none;
+    margin-right: 40.8px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navSpacing {
+    margin-right: 50px;
+}
+
+.footerLogo {
+    font-size: 1.5em;
+    margin-left: 40.8px;
+}

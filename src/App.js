@@ -1,40 +1,39 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import Header from './Components/Header';
+import MainHeader from './Components/MainHeader/MainHeader';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import * as actions from './Store/Actions/auth';
 
-import LandingView from './Containers/LandingView';
-import Layout from './Containers/Layout';
+import LandingView from './Containers/LandingView/LandingView';
 import BaseRouter from './routes';
+import MainFooter from './Components/MainFooter/MainFooter';
 
+import './App.css';
 
 class App extends Component {
 
   componentDidMount() {
-    console.log(this.props);
     this.props.onTryAutoSignup();
   }
 
   render() {
     return (
-      <div style={{ flexGrow: 1 }}>
+      <Fragment>
         <Router>
-          <div>
-            <Header {...this.props}/>
+          <MainHeader {...this.props} />
+          <main className="mainBody">
             <Switch>
               <Route exact path='/'>
                 <LandingView />
               </Route>
               <Route path='/'>
-                <Layout>
-                  <BaseRouter />
-                </Layout>
+                <BaseRouter />
               </Route>
             </Switch>
-          </div>
+          </main>
+          <MainFooter />
         </Router>
-      </div>
+      </Fragment>
     );
   }
 }
