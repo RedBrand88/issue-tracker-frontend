@@ -87,7 +87,7 @@
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
-    height: 812px;
+    height: 712px;
 }
 
 .columnParagraphs {
@@ -99,7 +99,7 @@
 }
 
 .buffer {
-    height: 512px;
+    height: 412px;
     width: 100%;
     /* background: linear-gradient(140deg, #8e3508 55%,  #f9ff00 100%); */
     background: #8e3508;
